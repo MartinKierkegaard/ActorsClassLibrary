@@ -11,9 +11,9 @@ namespace ActorsClassLibrary
     {
         private List<Actor> _actors = new List<Actor>() {
             new Actor("Bent",1,2000) ,
-            new Actor("Bent",1,2001) ,
-            new Actor("Bent",1,1990) ,
-            new Actor("Bent",1,1984) ,
+            new Actor("Bent",2,2001) ,
+            new Actor("Bent",3,1990) ,
+            new Actor("Bent",4,1984) ,
             };
 
         //CRUD Opretions
