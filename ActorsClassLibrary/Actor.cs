@@ -21,7 +21,7 @@
             get { return name; }
             set
             {
-                if (value == null || value.Length >= 4) {
+                if (value == null || value.Length < 4) {
                     throw new ArgumentException("Name må ikke være null og skal være mindst fire tegn langt");
                 }
                 name = value;

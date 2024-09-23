@@ -16,7 +16,7 @@ namespace ActorsClassLibrary.Tests
         [TestMethod()]
 
         [DataRow(1820, 1820,1,"Bent")]
-        [DataRow(1821, 1821,2, "Lis")]
+        [DataRow(1821, 1821,2, "Lise")]
         public void ActorBirthYear_1820_OK_Test(int expected, int Birthyear,int Id, string Navn)
         {
             //Arrange

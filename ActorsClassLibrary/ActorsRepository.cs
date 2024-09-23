@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace ActorsClassLibrary
 {
-    public class ActorsRepository
+    public class ActorsRepository : IActorsRepository
     {
         private List<Actor> _actors = new List<Actor>() {
             new Actor("Bent",1,2000) ,
@@ -23,8 +23,9 @@ namespace ActorsClassLibrary
         /// returnerer alle actors i listen 
         /// </summary>
         /// <returns>liste af actors</returns>
-        public List<Actor> GetAll() { 
-        return _actors;
+        public List<Actor> GetAll()
+        {
+            return _actors;
         }
 
         /// <summary>
@@ -42,7 +43,8 @@ namespace ActorsClassLibrary
         /// </summary>
         /// <param name="actor"></param>
         /// <returns>den actor som er tilføjet listen</returns>
-        public Actor Add(Actor  actor) { 
+        public Actor Add(Actor actor)
+        {
             _actors.Add(actor);
             return actor;
         }
@@ -53,7 +55,8 @@ namespace ActorsClassLibrary
         /// </summary>
         /// <param name="id">id på den actor som skal slettes</param>
         /// <returns>actor som er slettet</returns>
-        public Actor DeleteById(int id) { 
+        public Actor DeleteById(int id)
+        {
             Actor actor = GetById(id);
 
             _actors.Remove(actor);
