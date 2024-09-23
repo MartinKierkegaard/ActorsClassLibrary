@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ActorsClassLibrary
 {
     public class ActorsRepository
     {
         private List<Actor> _actors = new List<Actor>() {
-            new Actor() { Id=1,BirthYear=2000,Name="Bent"},
-            new Actor() { Id=2,BirthYear=2001,Name="Lene"},
-            new Actor() { Id=3,BirthYear=1990,Name="Hans"},
-            new Actor() { Id=4,BirthYear=1984,Name="Lis"},
+            new Actor("Bent",1,2000) ,
+            new Actor("Bent",1,2001) ,
+            new Actor("Bent",1,1990) ,
+            new Actor("Bent",1,1984) ,
             };
 
         //CRUD Opretions
