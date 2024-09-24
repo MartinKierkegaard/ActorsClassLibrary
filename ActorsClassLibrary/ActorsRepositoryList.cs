@@ -7,13 +7,13 @@ using System.Xml.Linq;
 
 namespace ActorsClassLibrary
 {
-    public class ActorsRepository : IActorsRepository
+    public class ActorsRepositoryList : IActorsRepository
     {
         private List<Actor> _actors = new List<Actor>() {
             new Actor("Bent",1,2000) ,
-            new Actor("Bent",2,2001) ,
-            new Actor("Bent",3,1990) ,
-            new Actor("Bent",4,1984) ,
+            new Actor("Bente",2,2001) ,
+            new Actor("Lene",3,1990) ,
+            new Actor("Frank",4,1984) ,
             };
 
         //CRUD Opretions

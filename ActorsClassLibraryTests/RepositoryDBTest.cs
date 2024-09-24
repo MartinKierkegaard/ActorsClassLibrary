@@ -12,15 +12,30 @@ namespace ActorsClassLibraryTests
     [ExcludeFromCodeCoverage]
     public class RepositoryDBTest
     {
+
+        private static IActorsRepository _actorsRepository;
+
+        /// <summary>
+        /// opsætter object der skal testes på. Bemærk at typen af _repository er et interface 
+        /// nemlig IActorsRepository
+        /// </summary>
+        [TestInitialize]
+        public void Init()
+        {
+            _actorsRepository = new ActorsRepositoryDB();
+
+        }
+
         /// <summary>
         /// tester at connection virker for GetAll metoden
         /// </summary>
-        [TestMethod()]
+        [TestMethod(),Priority(1)]
+        [DoNotParallelize]
         public void TestGetAllConnectionOkDB()
         {
 
             //Act
-            ActorsRepositoryDB db = new ActorsRepositoryDB();
+            IActorsRepository db = _actorsRepository;
 
             //arrange
             var result = db.GetAll();
@@ -33,12 +48,14 @@ namespace ActorsClassLibraryTests
         /// <summary>
         /// tester at connection virker for GetById metoden
         /// </summary>
-        [TestMethod()]
+        [TestMethod(),Priority(2)]
+        [DoNotParallelize]
+
         public void TestGetByIdDBConnectionOk()
         {
 
             //Act
-            ActorsRepositoryDB db = new ActorsRepositoryDB();
+            IActorsRepository db = _actorsRepository;
 
             //arrange
             Actor result = db.GetById(1);
