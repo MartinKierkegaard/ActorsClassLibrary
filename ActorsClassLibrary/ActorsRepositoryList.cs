@@ -9,7 +9,7 @@ namespace ActorsClassLibrary
 {
     public class ActorsRepositoryList : IActorsRepository
     {
-        private List<Actor> _actors = new List<Actor>() {
+        private List<Actor> _actorsList = new List<Actor>() {
             new Actor("Bent",1,2000) ,
             new Actor("Bente",2,2001) ,
             new Actor("Lene",3,1990) ,
@@ -25,7 +25,7 @@ namespace ActorsClassLibrary
         /// <returns>liste af actors</returns>
         public List<Actor> GetAll()
         {
-            return _actors;
+            return _actorsList;
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace ActorsClassLibrary
         /// <returns></returns>
         public Actor GetById(int id)
         {
-            return _actors.FirstOrDefault(x => x.Id == id);
+            return _actorsList.FirstOrDefault(x => x.Id == id);
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace ActorsClassLibrary
         /// <returns>den actor som er tilføjet listen</returns>
         public Actor Add(Actor actor)
         {
-            _actors.Add(actor);
+            _actorsList.Add(actor);
             return actor;
         }
 
@@ -59,14 +59,35 @@ namespace ActorsClassLibrary
         {
             Actor actor = GetById(id);
 
-            _actors.Remove(actor);
+            _actorsList.Remove(actor);
 
             return actor;
 
         }
 
+        /// <summary>
+        /// Metoden Get() giver mulighed for at filtrerer på Yearafter og lave sortering 
+        /// på enten Name eller BirthYear 
+        /// </summary>
+        /// <param name="yearAfter">filtrering på BirthYear > YearAfter </param>
+        /// <param name="orderBy">sortering på enten name eller BirtYear, angiv hhv "Name" eller "BirthYear"</param>
+        /// <returns>en liste af actors</returns>
+        public IEnumerable<Actor> Get(int? yearAfter = null, string? orderBy = null)
+        {
+            IEnumerable<Actor> result = _actorsList;
 
 
+            if (yearAfter != null)
+                result = result.Where(m => m.BirthYear > yearAfter);
+
+            if (orderBy != null)
+                if (orderBy == "Name")
+                    result = result.OrderBy(m => m.Name);
+                if (orderBy == "BirthYear")
+                    result = result.OrderBy(m => m.BirthYear);
+
+            return result;
+        }
     }
 
 

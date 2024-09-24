@@ -21,6 +21,11 @@ namespace ActorsClassLibrary
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Actor> Get(int? yearAfter = null, string? orderBy = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Actor> GetAll()
         {
 

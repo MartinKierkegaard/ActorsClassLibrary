@@ -28,6 +28,8 @@ namespace ActorsClassLibraryTests
 
             _repository = new ActorsRepositoryList();
 
+            //I Init kan der også tilføjes testdata til listen så du ved hvad du tester på ! 
+
         }
 
         /// <summary>
@@ -68,9 +70,21 @@ namespace ActorsClassLibraryTests
             Assert.AreEqual("Bent", result.Name);
         }
 
+        [TestMethod(), Priority(3)]
+        [DoNotParallelize]
 
+        public void TestGetFiltreringBirthYear()
+        {
 
+            //Act
+            //IActorsRepository _repository = _repository;
 
+            //arrange
+            IEnumerable<Actor> result = _repository.Get(1999, null);
+
+            //assert
+            Assert.AreEqual(2, result.Count());
+        }
 
     }
 }
